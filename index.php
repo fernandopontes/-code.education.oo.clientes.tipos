@@ -1,8 +1,8 @@
 <?php
-ini_set('display_errors', 1);
+/*ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
 define('CLASS_DIR', 'src/');
 set_include_path((get_include_path().PATH_SEPARATOR.CLASS_DIR));
