@@ -64,6 +64,21 @@ spl_autoload_register();
                     $clientes[$_GET['id']]->getBairro(),
                     $clientes[$_GET['id']]->getCidade(),
                     $clientes[$_GET['id']]->getEstado());
+
+            if(count($clientes[$_GET['id']]->getEnderecoCobranca()) > 0)
+            {
+                $dados_cobranca = $clientes[$_GET['id']]->getEnderecoCobranca();
+
+                printf('<div class="row">
+                        <strong>Endereço de cobrança:</strong><br>
+                        <fiedset>%s, %s - %s<br>%s/%s</fiedset>
+                        </div>',
+                        $dados_cobranca['endereco'],
+                    $dados_cobranca['numero'],
+                    $dados_cobranca['bairro'],
+                    $dados_cobranca['cidade'],
+                    $dados_cobranca['estado']);
+            }
         }
     }
     ?>

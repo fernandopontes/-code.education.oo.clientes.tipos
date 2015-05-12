@@ -6,7 +6,7 @@ use Clientes\ClienteAbstract;
 
 class ClientePJType extends ClienteAbstract {
 
-    public $cnpj;
+    private $cnpj;
 
     public function __construct($dados_cliente)
     {
@@ -37,13 +37,5 @@ class ClientePJType extends ClienteAbstract {
     public function getCnpj()
     {
         return $this->cnpj;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTipoCliente()
-    {
-        return $this->tipo_cliente;
     }
 } 

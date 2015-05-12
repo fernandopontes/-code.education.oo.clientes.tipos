@@ -2,18 +2,27 @@
 
 namespace Clientes;
 
-abstract class ClienteAbstract {
-    public $nome,
-           $data_nascimento,
-           $email,
-           $telefone,
-           $celular,
-           $endereco,
-           $numero,
-           $bairro,
-           $cidade,
-           $estado,
-           $tipo_cliente;
+
+use Clientes\Interfaces\ClassificacaoInterface;
+use Clientes\Interfaces\EnderecoCobranca;
+
+abstract class ClienteAbstract implements
+    EnderecoCobranca,
+    ClassificacaoInterface
+    {
+    private $nome;
+    private $data_nascimento;
+    private $email;
+    private $telefone;
+    private $celular;
+    private $endereco;
+    private $numero;
+    private $bairro;
+    private $cidade;
+    private $estado;
+    private $endereco_cobranca;
+    private $pontuacao;
+    protected $tipo_cliente;
 
     function __construct($dados_cliente)
     {
@@ -29,6 +38,8 @@ abstract class ClienteAbstract {
             $this->bairro           =   $dados_cliente['bairro'];
             $this->cidade           =   $dados_cliente['cidade'];
             $this->estado           =   $dados_cliente['estado'];
+            $this->pontuacao        =   $dados_cliente['pontuacao'];
+            $this->endereco_cobranca  =   $dados_cliente['endereco_cobranca'];
         }
         else {
             throw new Exception('Não há clientes');
@@ -116,7 +127,21 @@ abstract class ClienteAbstract {
         $this->telefone = $telefone;
     }
 
+    /**
+     * @param mixed $pontuacao
+     */
+    public function setPontuacao($pontuacao)
+    {
+        $this->pontuacao = $pontuacao;
+    }
 
+    /**
+     * @param mixed $endere_cobranca
+     */
+    public function setEnderecoCobranca($endereco_cobranca)
+    {
+        $this->endereco_cobranca = $endereco_cobranca;
+    }
 
     /**
      * @return mixed
@@ -196,5 +221,29 @@ abstract class ClienteAbstract {
     public function getTelefone()
     {
         return $this->telefone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPontuacao()
+    {
+        return $this->pontuacao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipoCliente()
+    {
+        return $this->tipo_cliente;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnderecoCobranca()
+    {
+        return $this->endereco_cobranca;
     }
 }

@@ -6,7 +6,7 @@ use Clientes\ClienteAbstract;
 
 class ClientePFType extends ClienteAbstract {
 
-    public $cpf;
+    private $cpf;
 
     public function __construct($dados_cliente)
     {
@@ -37,13 +37,5 @@ class ClientePFType extends ClienteAbstract {
     public function getCpf()
     {
         return $this->cpf;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTipoCliente()
-    {
-        return $this->tipo_cliente;
     }
 } 

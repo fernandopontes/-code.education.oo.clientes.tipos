@@ -53,12 +53,28 @@ spl_autoload_register();
         {
             $ordem =  $indice + 1;
 
-            printf('<tr><td>%d</td><td><a class="iframe" href="cliente_dados.php?id=%d">%s</a></td><td>%s</td><td>%s</td><td>%s/%s</td><td><div class="basic" data-average="12" data-id="%d"></div></td></tr>', $ordem, $indice, $item->getNome(), ($item->getTipoCliente() == 'PF') ? 'Pessoa Física' : 'Pessoa Jurídica', $item->getDataNascimento(), $item->getCidade(), $item->getEstado(), $indice);
+            printf('<tr>
+                        <td>%d</td>
+                        <td><a class="iframe" href="cliente_dados.php?id=%d">%s</a></td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s/%s</td>
+                        <td><div class="basic" data-average="%d" data-id="%d"></div></td>
+                     </tr>',
+                    $ordem,
+                    $indice,
+                    $item->getNome(),
+                    ($item->getTipoCliente() == 'PF') ? 'Pessoa Física' : 'Pessoa Jurídica', $item->getDataNascimento(),
+                    $item->getCidade(),
+                    $item->getEstado(),
+                    $item->getPontuacao(),
+                    $indice);
 
         }
         print('</table>');
     }
     ?>
+    <div class="serverResponse"><p></p></div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -74,7 +90,9 @@ spl_autoload_register();
             type : 'big', // type of the rate.. can be set to 'small' or 'big'
             length : 5, // nb of stars
             decimalLength : 1, // number of decimal in the rate
-            showRateInfo : false
+            showRateInfo : false,
+            step : true,
+            rateMax : 5
         });
     </script>
 
