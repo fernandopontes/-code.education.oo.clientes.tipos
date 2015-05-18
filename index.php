@@ -28,7 +28,7 @@ spl_autoload_register();
 <body>
     <div id="container-conteudo">
     <?php
-    include_once 'cliente_lista.php';
+    include_once 'inc/cliente_lista.php';
 
     if(count($clientes) > 0)
     {
@@ -55,7 +55,7 @@ spl_autoload_register();
 
             printf('<tr>
                         <td>%d</td>
-                        <td><a class="iframe" href="cliente_dados.php?id=%d">%s</a></td>
+                        <td><a class="iframe" href="inc/cliente_dados.php?id=%d">%s</a></td>
                         <td>%s</td>
                         <td>%s</td>
                         <td>%s/%s</td>

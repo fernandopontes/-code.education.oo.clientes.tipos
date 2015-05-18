@@ -14,7 +14,7 @@
 			/** String vars **/
 			bigStarsPath : 'icons/stars.png', // path of the icon stars.png
 			smallStarsPath : 'icons/small.png', // path of the icon small.png
-			phpPath : 'jRating.php', // path of the php file jRating.php
+			phpPath : 'inc/jRating.php', // path of the php file jRating.php
 			type : 'big', // can be set to 'small' or 'big'
 
 			/** Boolean vars **/
